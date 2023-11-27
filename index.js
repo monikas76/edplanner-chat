@@ -11,7 +11,6 @@ const HOST =process.env.HOST;
 
 //const app =express();
 
-const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
