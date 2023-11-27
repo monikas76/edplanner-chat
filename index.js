@@ -8,7 +8,6 @@ const Route =require('./routes.js');
 const PORT =5500;
 const app =express();
 
-const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
