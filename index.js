@@ -1,3 +1,4 @@
+require('dotenv/config');
 const cors =require('cors');
 const http = require('http');
 const express =require('express');
@@ -5,8 +6,10 @@ const socketIO = require('socket.io');
 const { db } = require('./db.js');
 const Route =require('./routes.js');
 
-const PORT =5500;
-const app =express();
+const PORT =process.env.PORT;
+const HOST =process.env.HOST;
+
+//const app =express();
 
 const app = express();
 const server = http.createServer(app);
@@ -33,7 +36,7 @@ io.on('connection', ({id}) => {
 });
 
 
-app.listen(PORT, '0.0.0.0',async () =>{
+app.listen(PORT, HOST,async () =>{
     try {
         await db.query('SELECT 1');
         console.log(`[+] Server Running On ${PORT}`)
