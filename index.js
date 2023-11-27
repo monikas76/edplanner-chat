@@ -9,7 +9,7 @@ const Route =require('./routes.js');
 const PORT =process.env.PORT;
 const HOST =process.env.HOST;
 
-//const app =express();
+const app =express();
 
 const server = http.createServer(app);
 const io = socketIO(server);
