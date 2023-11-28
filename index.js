@@ -20,8 +20,10 @@ app.use(express.json({limit: '30mb'}));
 app.use(express.urlencoded({limit: '30mb', extended: true}));
 
 // routes
+app.get('/socket.io', (req, res) => {
+    res.sendFile(__dirname + '/node_modules/socket.io-client/dist/socket.io.js');
+});
 app.use('/', Route);
-
 
 io.on('connection', ({id}) => {
   socket.on('new message', async (message) => {
